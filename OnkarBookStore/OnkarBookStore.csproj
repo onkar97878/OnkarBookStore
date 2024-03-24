@@ -15,4 +15,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OnkarBooks.DataAccess\OnkarBooks.DataAccess.csproj" />
+    <ProjectReference Include="..\OnkarBooks.Models\OnkarBooks.Models.csproj" />
+  </ItemGroup>
+
 </Project>
