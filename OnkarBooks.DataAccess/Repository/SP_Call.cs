@@ -1,14 +1,13 @@
-﻿using OnkarBook.DataAccess.Repository.IRepository;
-using OnkarBookStore.DataAccess.Data;
+﻿using OnkarBookStore.DataAccess.Data;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
+using OnkarBooks.DataAccess.Repository.iRepository;
+using Microsoft.Data.SqlClient;
 
-namespace OnkarBook.DataAccess.Repository
+namespace OnkarBooks.DataAccess.Repository
 {
     public class SP_Call : ISP_Call
     {
@@ -23,7 +22,7 @@ namespace OnkarBook.DataAccess.Repository
             ConnectionString = db.Database.GetDbConnection().ConnectionString;
         }
 
-        // Iimplements the ISP_Call interface
+        // implements the ISP_Call Interface
         public void Dispose()
         {
             _db.Dispose();

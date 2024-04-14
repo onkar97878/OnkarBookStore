@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OnkarBooks.DataAccess.Repository;
+using OnkarBooks.DataAccess.Repository.IRepository;
 using OnkarBookStore.DataAccess.Data;
 
 namespace OnkarBookStore
@@ -25,10 +27,11 @@ namespace OnkarBookStore
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
-
+            // removed options=> options.SignIn.RequireConfirmedAccount =true'
             services.AddDefaultIdentity<IdentityUser>()
         
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews();
         }
 
